@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7639027849810434037}
   - component: {fileID: 7639027849810434038}
   - component: {fileID: 7639027849810434036}
-  - component: {fileID: -6605081673824073418}
   m_Layer: 0
   m_Name: light_curved
   m_TagString: Untagged
@@ -131,15 +130,3 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &-6605081673824073418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7404531911243718194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81f9cca048b9b3c40898c063a22cd5d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
