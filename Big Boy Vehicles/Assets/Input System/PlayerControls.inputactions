@@ -1,5 +1,5 @@
 {
-    "name": "InputMaster",
+    "name": "PlayerControls",
     "maps": [
         {
             "name": "Vehicles",
@@ -7,15 +7,15 @@
             "actions": [
                 {
                     "name": "Steering",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "2c2b840f-0efc-43e4-812b-03bd41eaeaf5",
-                    "expectedControlType": "Analog",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Accelerate (Digital)",
+                    "name": "Throttle (Digital)",
                     "type": "Button",
                     "id": "02ed6095-1f2e-4b86-b168-b706ac1ce886",
                     "expectedControlType": "Button",
@@ -24,13 +24,22 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Accelerate (Analog)",
+                    "name": "Throttle (Analog)",
                     "type": "Value",
                     "id": "0369fac4-a4bf-4ff4-af61-37dc73bcc7f3",
                     "expectedControlType": "Analog",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Special",
+                    "type": "Button",
+                    "id": "476203e4-3408-402e-b47b-117b0ab65f3c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -46,7 +55,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
+                    "name": "Negative",
                     "id": "0f85c96a-3d12-4d8e-90e6-28aeec9d430b",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
@@ -57,7 +66,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
+                    "name": "Positive",
                     "id": "b6c0a267-8b40-4c70-af3c-ff464060f2ee",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
@@ -173,7 +182,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Accelerate (Digital)",
+                    "action": "Throttle (Digital)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -184,7 +193,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Accelerate (Digital)",
+                    "action": "Throttle (Digital)",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -195,7 +204,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Accelerate (Analog)",
+                    "action": "Throttle (Analog)",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8f7d689d-1246-4922-87ca-f199ee79f857",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Special",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
