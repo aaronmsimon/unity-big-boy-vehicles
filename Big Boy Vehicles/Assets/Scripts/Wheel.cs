@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Wheel : MonoBehaviour
 {
-    [Header("Wheel Type")]
     [SerializeField] private bool steer;
     [SerializeField] private bool invertSteer;
     [SerializeField] private bool power;
@@ -24,7 +23,7 @@ public class Wheel : MonoBehaviour
     void Update()
     {
         wheelCollider.GetWorldPose(out Vector3 pos, out Quaternion rot);
-        wheelTransform.position = pos;
+        //wheelTransform.position = pos;
         wheelTransform.rotation = rot;
     }
 
