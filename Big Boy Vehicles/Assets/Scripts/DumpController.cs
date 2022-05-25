@@ -7,16 +7,20 @@ public class DumpController : MonoBehaviour
     [SerializeField] private float maxRotation = -10f;
     [SerializeField] private float smooth = 3f;
 
+    public float Special { get; set; }
+
     private bool isDumping;
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && !isDumping)
+        Special = GameManager.Instance.InputController.SpecialInput;
+
+        if (Special == 1 && !isDumping)
         {
             isDumping = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Special == 0)
         {
             isDumping = false;
         }
