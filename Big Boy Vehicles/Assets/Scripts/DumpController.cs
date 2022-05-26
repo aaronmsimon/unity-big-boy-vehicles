@@ -15,15 +15,7 @@ public class DumpController : MonoBehaviour
     {
         Special = GameManager.Instance.InputController.SpecialInput;
 
-        if (Special == 1 && !isDumping)
-        {
-            isDumping = true;
-        }
-
-        if (Special == 0)
-        {
-            isDumping = false;
-        }
+        isDumping = (Special == 1);
 
         rotateDump();
     }
