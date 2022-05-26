@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    [SerializeField] private GameObject objToFollow;
-    [SerializeField] private Vector3 offset;
+    [SerializeField] private Transform target;
 
-    // Update is called once per frame
+    [SerializeField] private Vector3 offset;
+    [SerializeField] private Vector3 eulerRotation;
+    //[SerializeField] private float damper;
+
+    private void Start()
+    {
+        transform.eulerAngles = eulerRotation;
+    }
+
     void Update()
     {
-        transform.position = objToFollow.transform.position + offset;
+        if (target == null)
+            return;
+
+        //transform.position = Vector3.Lerp(transform.position, target.position + offset, damper * Time.deltaTime);
+        transform.position = target.position + target.rotation * offset;
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, target.eulerAngles.y, transform.eulerAngles.z);
     }
 }
