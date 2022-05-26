@@ -24,7 +24,7 @@ public class VehicleController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = centerOfMass.localPosition;
-        
+
     }
 
     void Update()
