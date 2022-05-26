@@ -218,7 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 70787080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 285052297}
   - component: {fileID: 285052298}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WheelCollider (FL)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 323173369}
   - component: {fileID: 323173368}
   - component: {fileID: 323173367}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bottom (back)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 429027698}
   - component: {fileID: 429027697}
   - component: {fileID: 429027699}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tire (FR)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +739,7 @@ GameObject:
   - component: {fileID: 507018528}
   - component: {fileID: 507018527}
   - component: {fileID: 507018526}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -834,7 +834,7 @@ GameObject:
   - component: {fileID: 509381226}
   - component: {fileID: 509381225}
   - component: {fileID: 509381224}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +963,7 @@ GameObject:
   - component: {fileID: 614427389}
   - component: {fileID: 614427388}
   - component: {fileID: 614427387}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bottom (front)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1458,7 +1458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 946442400}
   - component: {fileID: 946442401}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WheelCollider (FR)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1586,13 +1586,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.26236796, y: 0.013036014, z: -0.0035447928, w: -0.9648734}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 34.659, y: -111.515, z: 18.822}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1605,8 +1605,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9236555b2ebf84faa6e58132b855a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objToFollow: {fileID: 919132149126464206}
+  target: {fileID: 543450653601781876}
   offset: {x: 0, y: 7, z: -10}
+  eulerRotation: {x: 30, y: 0, z: 0}
 --- !u!1 &1001605757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,7 +1618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1001605758}
   - component: {fileID: 1001605759}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WheelCollider (RL)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1988,7 +1989,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1347908510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2210,7 +2211,7 @@ GameObject:
   - component: {fileID: 1468671756}
   - component: {fileID: 1468671755}
   - component: {fileID: 1468671754}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Front wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2525,7 +2526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1671530998}
   - component: {fileID: 1671530999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WheelCollider (RR)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2696,7 +2697,7 @@ GameObject:
   - component: {fileID: 1870742121}
   - component: {fileID: 1870742120}
   - component: {fileID: 1870742122}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tire (RR)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2791,7 +2792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1901974811}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CenterOfMass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3111,7 +3112,7 @@ GameObject:
   - component: {fileID: 1736232542018008286}
   - component: {fileID: 4589172043377464268}
   - component: {fileID: 113758492935844820}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3176,7 +3177,7 @@ GameObject:
   - component: {fileID: 2570646523493337273}
   - component: {fileID: 635547659516861432}
   - component: {fileID: 635547659516861433}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3277,7 +3278,7 @@ GameObject:
   - component: {fileID: 543450653601781876}
   - component: {fileID: 919132149126464208}
   - component: {fileID: 919132149126464207}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dump Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3298,6 +3299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motorTorque: 5000
   maxSteer: 20
+  brakeTorque: 500
 --- !u!54 &919132149126464208
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3383,7 +3385,7 @@ GameObject:
   - component: {fileID: 389173232162216614}
   - component: {fileID: 1189642715911946991}
   - component: {fileID: 1986926148037609788}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tire (FL)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3935,7 +3937,7 @@ GameObject:
   - component: {fileID: 3360307515799292001}
   - component: {fileID: 7567284097509057019}
   - component: {fileID: 8819552308776861773}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tire (RL)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
