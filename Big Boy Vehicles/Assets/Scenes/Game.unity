@@ -190,8 +190,12 @@ MonoBehaviour:
     m_ActionName: Vehicles/Accelerate (Digital)[/Keyboard/upArrow,/Keyboard/w]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 0369fac4-a4bf-4ff4-af61-37dc73bcc7f3
-    m_ActionName: Vehicles/Accelerate (Analog)[/DualSenseGamepadHID/rightTrigger]
+    m_ActionId: 476203e4-3408-402e-b47b-117b0ab65f3c
+    m_ActionName: Vehicles/Special[/Keyboard/space,/DualSenseGamepadHID/buttonSouth,/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0951c665-ab7f-4a28-b239-1d268fbf8854
+    m_ActionName: Vehicles/Brake[/Keyboard/downArrow,/Keyboard/s,/DualSenseGamepadHID/leftTrigger,/DualShock4GamepadHID/leftTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Vehicles
@@ -402,7 +406,7 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285052296}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.83
+  m_Radius: 0.82
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -412,7 +416,7 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.1
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
@@ -1487,7 +1491,7 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946442399}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.83
+  m_Radius: 0.82
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -1497,7 +1501,7 @@ WheelCollider:
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.1
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
@@ -1647,7 +1651,7 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001605757}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.83
+  m_Radius: 0.82
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -1658,7 +1662,7 @@ WheelCollider:
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
+    m_ExtremumValue: 1.5
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
@@ -2074,6 +2078,10 @@ PrefabInstance:
     - target: {fileID: 1183980166549891830, guid: 76edfe8ae256e46499b0baa13021450b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521474878250366508, guid: 76edfe8ae256e46499b0baa13021450b, type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2521474878250366509, guid: 76edfe8ae256e46499b0baa13021450b, type: 3}
       propertyPath: m_Name
@@ -2555,7 +2563,7 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671530997}
   m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 0.83
+  m_Radius: 0.82
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -2566,7 +2574,7 @@ WheelCollider:
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
+    m_ExtremumValue: 1.5
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
@@ -3297,7 +3305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ab15f01fe2b994f9c8fcbd51abc112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  motorTorque: 5000
+  motorTorque: 2500
   maxSteer: 20
   brakeTorque: 500
 --- !u!54 &919132149126464208
@@ -3308,7 +3316,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149126464206}
   serializedVersion: 2
-  m_Mass: 12000
+  m_Mass: 5000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -3530,6 +3538,7 @@ GameObject:
   - component: {fileID: 2375780619173175015}
   - component: {fileID: 1682002617109844290}
   - component: {fileID: 3509248856800683400}
+  - component: {fileID: 3149044518526075998}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -3537,6 +3546,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &3149044518526075998
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149044518526075997}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -462981019419857548, guid: c8e1fbad6edcd6744833eb4e4e229ef2, type: 3}
 --- !u!33 &3360307515799292001
 MeshFilter:
   m_ObjectHideFlags: 0
