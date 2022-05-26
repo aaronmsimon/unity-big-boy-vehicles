@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Throttle (Digital)",
+                    "name": "Throttle",
                     "type": "Button",
                     "id": "02ed6095-1f2e-4b86-b168-b706ac1ce886",
                     "expectedControlType": "Button",
@@ -24,18 +24,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Throttle (Analog)",
-                    "type": "Value",
-                    "id": "0369fac4-a4bf-4ff4-af61-37dc73bcc7f3",
-                    "expectedControlType": "Analog",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Special",
                     "type": "Button",
                     "id": "476203e4-3408-402e-b47b-117b0ab65f3c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Brake",
+                    "type": "Button",
+                    "id": "0951c665-ab7f-4a28-b239-1d268fbf8854",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -182,7 +182,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Throttle (Digital)",
+                    "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -193,18 +193,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Throttle (Digital)",
+                    "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "359dda03-f398-48eb-b014-94b9e3154924",
+                    "id": "513b73a9-6e8f-4df9-8ea4-5dd6001bf5a4",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Throttle (Analog)",
+                    "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -216,6 +216,50 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Special",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "63d4efd8-5a6f-4bab-a610-6075c86a6111",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Special",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "32aebf6a-74e2-4050-b117-9477a23d6957",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69e5c7ac-1f93-410e-a7bc-6b1a277e9efa",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfdd79dd-27b0-4e4b-9f82-9de67e63a8ef",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Brake",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
