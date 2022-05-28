@@ -20,7 +20,6 @@ public class FollowCamera : MonoBehaviour
         if (target == null)
             return;
 
-        //transform.position = Vector3.Lerp(transform.position, target.position + offset, damper * Time.deltaTime);
         transform.position = target.position + target.rotation * offset;
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, target.eulerAngles.y, transform.eulerAngles.z);
     }
