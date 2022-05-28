@@ -15,10 +15,20 @@ public class Wheel : MonoBehaviour
     private WheelCollider wheelCollider;
     private Transform wheelTransform;
 
+    private float nextMoveCheck;
+    private float timeBetweenMoveChecks = .25f;
+    private Vector3 lastPos;
+    private float moveDistanceThreshold = .005f;
+    private bool isMoving;
+    private bool forwardMode = true;
+
     void Start()
     {
         wheelCollider = GetComponentInChildren<WheelCollider>();
         wheelTransform = GetComponentInChildren<MeshRenderer>().GetComponent<Transform>();
+
+        nextMoveCheck = Time.time + timeBetweenMoveChecks;
+        lastPos = transform.position;
     }
 
     void Update()
@@ -26,6 +36,24 @@ public class Wheel : MonoBehaviour
         wheelCollider.GetWorldPose(out Vector3 pos, out Quaternion rot);
         //wheelTransform.position = pos;
         wheelTransform.rotation = rot;
+
+        if (Time.time > nextMoveCheck)
+        {
+            isMoving = (Vector3.Distance(transform.position, lastPos) > moveDistanceThreshold);
+            lastPos = transform.position;
+            nextMoveCheck = Time.time + timeBetweenMoveChecks;
+
+            if (!isMoving)
+            {
+                if (Torque > 0)
+                {
+                    forwardMode = true;
+                } else if (Brake > 0)
+                {
+                    forwardMode = false;
+                }
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -37,8 +65,9 @@ public class Wheel : MonoBehaviour
 
         if (power)
         {
-            wheelCollider.motorTorque = Torque;
-            wheelCollider.brakeTorque = Brake;
+            wheelCollider.motorTorque = (forwardMode ? Torque : -Brake);
         }
+
+        wheelCollider.brakeTorque = (forwardMode ? Brake : Torque);
     }
 }
