@@ -5,8 +5,9 @@ using UnityEngine;
 public class ItemSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] items;
+    [SerializeField]  private float timeBetweenSpawns = .5f;
+    public bool canSpawn;
 
-    private float timeBetweenSpawns = .5f;
     private float nextItemSpawnTime;
 
     private void Start()
@@ -19,7 +20,7 @@ public class ItemSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.InputController.SpawnRockInput == 1 && Time.time > nextItemSpawnTime)
+        if (canSpawn && Time.time > nextItemSpawnTime)
         {
             nextItemSpawnTime = Time.time + timeBetweenSpawns;
             SpawnItem();
