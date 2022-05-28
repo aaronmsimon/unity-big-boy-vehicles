@@ -32,7 +32,6 @@ public class ConveyorBelt : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        collision.rigidbody.constraints = RigidbodyConstraints.None;
         onBelt.Remove(collision.gameObject);
     }
 }
