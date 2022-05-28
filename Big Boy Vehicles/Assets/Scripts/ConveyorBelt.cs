@@ -8,11 +8,16 @@ public class ConveyorBelt : MonoBehaviour
     
     private List<GameObject> onBelt;
 
+    private void Start()
+    {
+        onBelt = new List<GameObject>();
+    }
+
     private void Update()
     {
         for (int i = 0; i < onBelt.Count; i++)
         {
-            onBelt[i].GetComponent<Rigidbody>().velocity = speed * transform.worldToLocalMatrix.MultiplyVector(transform.forward) * Time.deltaTime;
+            onBelt[i].GetComponent<Rigidbody>().velocity = speed * transform.forward * Time.deltaTime;
         }
     }
 
@@ -20,12 +25,14 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Conveyorable"))
         {
+            collision.rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
             onBelt.Add(collision.gameObject);
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
+        collision.rigidbody.constraints = RigidbodyConstraints.None;
         onBelt.Remove(collision.gameObject);
     }
 }
