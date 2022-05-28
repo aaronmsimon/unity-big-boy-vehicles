@@ -10,6 +10,8 @@ public class InputController : MonoBehaviour
     public float BrakeInput { get; private set; }
     public float SpecialInput { get; private set; }
 
+    public float SpawnRockInput { get; private set; }
+
     private PlayerInput playerInput;
 
     // Store controls
@@ -17,6 +19,8 @@ public class InputController : MonoBehaviour
     private InputAction throttleAction;
     private InputAction brakeAction;
     private InputAction specialAction;
+
+    private InputAction spawnRocks;
 
     private void Awake()
     {
@@ -26,13 +30,18 @@ public class InputController : MonoBehaviour
         throttleAction = playerInput.actions["Throttle"];
         brakeAction = playerInput.actions["Brake"];
         specialAction = playerInput.actions["Special"];
+
+        spawnRocks = playerInput.actions["Spawn Rocks"];
     }
 
     private void Update()
     {
+        // Vehicle Controls
         SteerInput = steerAction.ReadValue<float>();
         ThrottleInput = throttleAction.ReadValue<float>();
-        BrakeInput = brakeAction.ReadValue<float>() * -1;
+        BrakeInput = brakeAction.ReadValue<float>();
         SpecialInput = specialAction.ReadValue<float>();
+
+        SpawnRockInput = spawnRocks.ReadValue<float>();
     }
 }
