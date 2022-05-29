@@ -9,39 +9,30 @@ public class InputController : MonoBehaviour
     public float ThrottleInput { get; private set; }
     public float BrakeInput { get; private set; }
     public float SpecialInput { get; private set; }
-
-    public float SpawnRockInput { get; private set; }
+    public float SecondaryInput { get; private set; }
 
     private PlayerInput playerInput;
-
-    // Store controls
-    private InputAction steerAction;
-    private InputAction throttleAction;
-    private InputAction brakeAction;
-    private InputAction specialAction;
-
-    private InputAction spawnRocks;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
 
-        steerAction = playerInput.actions["Steering"];
-        throttleAction = playerInput.actions["Throttle"];
-        brakeAction = playerInput.actions["Brake"];
-        specialAction = playerInput.actions["Special"];
-
-        spawnRocks = playerInput.actions["Spawn Rocks"];
+        //playerInput.actions["Secondary"].performed += SecondaryAction;
+        
     }
 
     private void Update()
     {
         // Vehicle Controls
-        SteerInput = steerAction.ReadValue<float>();
-        ThrottleInput = throttleAction.ReadValue<float>();
-        BrakeInput = brakeAction.ReadValue<float>();
-        SpecialInput = specialAction.ReadValue<float>();
+        SteerInput = playerInput.actions["Steering"].ReadValue<float>();
+        ThrottleInput = playerInput.actions["Throttle"].ReadValue<float>();
+        BrakeInput = playerInput.actions["Brake"].ReadValue<float>();
+        SpecialInput = playerInput.actions["Special"].ReadValue<float>();
+        SecondaryInput = playerInput.actions["Secondary"].ReadValue<float>();
+    }
 
-        SpawnRockInput = spawnRocks.ReadValue<float>();
+    public void SecondaryAction(InputAction.CallbackContext context)
+    {
+        Debug.Log(context.ReadValueAsButton());
     }
 }
