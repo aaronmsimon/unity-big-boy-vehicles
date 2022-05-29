@@ -42,12 +42,12 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Spawn Rocks",
+                    "name": "Secondary",
                     "type": "Button",
-                    "id": "d3ec2771-8ada-42ec-b26d-591a17f02b14",
+                    "id": "1d04a58d-d6cd-43f1-a9a0-1813a967dec2",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -274,12 +274,23 @@
                 },
                 {
                     "name": "",
-                    "id": "6c210c63-46cc-4529-a94e-c124b8dd23f6",
-                    "path": "<Keyboard>/r",
+                    "id": "d42db690-3bc6-4406-a796-0d586937b3fc",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard;Gamepad",
-                    "action": "Spawn Rocks",
+                    "groups": "Keyboard",
+                    "action": "Secondary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "957b0488-367b-47c5-8654-b309809e1156",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Secondary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
