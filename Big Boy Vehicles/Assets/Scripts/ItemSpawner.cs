@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    [SerializeField]  private float timeBetweenSpawns = .5f;
-    public bool spawnEnabled;
+    [SerializeField] private float timeBetweenSpawns = .5f;
+    [SerializeField] public string itemPool;
 
     private ObjectPooler objectPooler;
     private float nextItemSpawnTime;
+    [HideInInspector] public bool spawnEnabled;
 
     private void Start()
     {
-        // Need to generate a random seed?
-        //System.DateTime.Now.Ticks;
-
         objectPooler = ObjectPooler.Instance;
         nextItemSpawnTime = Time.time + timeBetweenSpawns;
     }
@@ -30,7 +28,7 @@ public class ItemSpawner : MonoBehaviour
 
     private void SpawnItem()
     {
-        objectPooler.SpawnFromPool("Rocks", transform.position, Quaternion.identity);
+        objectPooler.SpawnFromPool(itemPool, transform.position, Quaternion.identity);
     }
 
 }
