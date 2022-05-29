@@ -9,16 +9,12 @@ public class InputController : MonoBehaviour
     public float ThrottleInput { get; private set; }
     public float BrakeInput { get; private set; }
     public float SpecialInput { get; private set; }
-    public float SecondaryInput { get; private set; }
 
-    private PlayerInput playerInput;
+    public PlayerInput playerInput;
 
     private void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
-
-        //playerInput.actions["Secondary"].performed += SecondaryAction;
-        
+        playerInput = GetComponent<PlayerInput>();       
     }
 
     private void Update()
@@ -28,11 +24,6 @@ public class InputController : MonoBehaviour
         ThrottleInput = playerInput.actions["Throttle"].ReadValue<float>();
         BrakeInput = playerInput.actions["Brake"].ReadValue<float>();
         SpecialInput = playerInput.actions["Special"].ReadValue<float>();
-        SecondaryInput = playerInput.actions["Secondary"].ReadValue<float>();
     }
 
-    public void SecondaryAction(InputAction.CallbackContext context)
-    {
-        Debug.Log(context.ReadValueAsButton());
-    }
 }
