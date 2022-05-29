@@ -31,6 +31,8 @@ public class ObjectPooler : MonoBehaviour
         foreach (Pool pool in pools)
         {
             Queue<GameObject> objectPool = new Queue<GameObject>();
+            GameObject goParent = new GameObject(pool.tag);
+            goParent.transform.SetParent(transform);
 
             for (int i = 0; i < pool.size; i++)
             {
@@ -38,6 +40,7 @@ public class ObjectPooler : MonoBehaviour
                 GameObject obj = Instantiate(pool.prefabs[itemIndex], transform.position, Quaternion.identity);
 
                 obj.SetActive(false);
+                obj.transform.SetParent(goParent.transform);
                 objectPool.Enqueue(obj);
             }
 
