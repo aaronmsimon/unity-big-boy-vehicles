@@ -7,15 +7,11 @@ public class DumpController : MonoBehaviour
     [SerializeField] private float maxRotation = -10f;
     [SerializeField] private float smooth = 3f;
 
-    public float Special { get; set; }
-
     private bool isDumping;
 
     void Update()
     {
-        Special = GameManager.Instance.InputController.SpecialInput;
-
-        isDumping = (Special == 1);
+        isDumping = (GameManager.Instance.InputController.SpecialInput == 1);
 
         rotateDump();
     }
