@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StreetSweeperController : MonoBehaviour
 {
@@ -17,50 +18,45 @@ public class StreetSweeperController : MonoBehaviour
     [SerializeField] private float fanSpeed;
     
     private bool armsExtended;
-    private bool armsMoving;
-
     private bool fansEnabled;
-    private float fanCheckFreq = .5f;
-    private float nextFanCheck;
 
     private void Start()
     {
         armsExtended = false;
-        armsMoving = false;
-        fansEnabled = false;
-        nextFanCheck = Time.time + fanCheckFreq;
+
+        GameManager.Instance.InputController.playerInput.actions["Special"].performed += SpecialAction;
+        GameManager.Instance.InputController.playerInput.actions["Secondary"].performed += SecondaryAction;
     }
 
-    void Update()
+    private void Update()
     {
-        if (GameManager.Instance.InputController.SecondaryInput == 1 && !armsMoving)
-        {
-            armsMoving = true;
-            armsExtended = !armsExtended;
-            foreach (FanComplex fanComplex in fans)
-            {
-                StartCoroutine(AdjustFanArms(fanComplex));
-                foreach (Transform fan in fanComplex.fans)
-                {
-                    StartCoroutine(AdjustFans(fan));
-                }
-            }
-        }
-
-        if (GameManager.Instance.InputController.SpecialInput == 1 && Time.time > nextFanCheck)
-        {
-            fansEnabled = !fansEnabled;
-            nextFanCheck = Time.time + fanCheckFreq;
-        }
-
         if (fansEnabled)
         {
             foreach (FanComplex fanComplex in fans)
             {
                 foreach (Transform fan in fanComplex.fans)
                 {
-                    fan.Rotate(0, fanSpeed * Time.deltaTime, 0);
+                    fan.Rotate(0, fanSpeed * Time.deltaTime * fan.localScale.x * (fan.localPosition.z > 0 ? -1 : 1), 0);
                 }
+            }
+        }
+    }
+
+    private void SpecialAction(InputAction.CallbackContext context)
+    {
+        fansEnabled = !fansEnabled;
+    }
+
+    private void SecondaryAction(InputAction.CallbackContext context)
+    {
+        armsExtended = !armsExtended;
+
+        foreach (FanComplex fanComplex in fans)
+        {
+            StartCoroutine(AdjustFanArms(fanComplex));
+            foreach (Transform fan in fanComplex.fans)
+            {
+                StartCoroutine(AdjustFans(fan));
             }
         }
     }
@@ -78,7 +74,6 @@ public class StreetSweeperController : MonoBehaviour
             percent += Time.deltaTime * armMoveTime;
             yield return null;
         }
-        armsMoving = false;
     }
 
     IEnumerator AdjustFans(Transform fan)
