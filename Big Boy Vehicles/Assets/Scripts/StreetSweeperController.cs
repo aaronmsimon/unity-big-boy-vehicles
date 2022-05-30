@@ -18,7 +18,7 @@ public class StreetSweeperController : MonoBehaviour
     [SerializeField] private float fanSpeed;
     
     private bool armsExtended;
-    private bool fansEnabled;
+    public bool fansEnabled { get; private set; }
 
     private void Start()
     {
