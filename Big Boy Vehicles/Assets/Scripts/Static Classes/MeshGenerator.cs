@@ -14,26 +14,17 @@ public static class MeshGenerator
         MeshData meshData = new MeshData(width, height);
         int vertexIndex = 0;
 
-        float[] zAxisNoise = new float[width];
-        for (int i = 0; i < width; i++)
-        {
-            zAxisNoise[i] = heightMap[height - 1, i];
-        }
-
         for (int y = 0; y < height; y++)
         {
             for (int x = 0; x < width; x++)
             {
-                if ((float)y / height <= zAxisNoise[x])
-                {
-                    meshData.vertices[vertexIndex] = new Vector3(topLeftX + x, heightMap[x, y] * heightMultiplier, topLeftZ - y);
-                    meshData.uvs[vertexIndex] = new Vector2(x / (float)width, y / (float)height);
+                meshData.vertices[vertexIndex] = new Vector3(topLeftX + x, heightMap[x, y] * heightMultiplier, topLeftZ - y);
+                meshData.uvs[vertexIndex] = new Vector2(x / (float)width, y / (float)height);
 
-                    if (x < width - 1 && y < height - 1)
-                    {
-                        meshData.AddTriangle(vertexIndex, vertexIndex + width + 1, vertexIndex + width);
-                        meshData.AddTriangle(vertexIndex + width + 1, vertexIndex, vertexIndex + 1);
-                    }
+                if (x < width - 1 && y < height - 1)
+                {
+                    meshData.AddTriangle(vertexIndex, vertexIndex + width + 1, vertexIndex + width);
+                    meshData.AddTriangle(vertexIndex + width + 1, vertexIndex, vertexIndex + 1);
                 }
 
                 vertexIndex++;
