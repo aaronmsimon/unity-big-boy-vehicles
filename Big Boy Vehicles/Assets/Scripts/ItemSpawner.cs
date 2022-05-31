@@ -31,21 +31,23 @@ public class ItemSpawner : MonoBehaviour
 
     private void SpawnItem()
     {
-        if (ignoreIfOverlap)
-        {
-            objectPooler.SpawnFromPool(itemPool, transform.position, Quaternion.identity);
-        } else
+        bool canSpawn = true;
+
+        if (!ignoreIfOverlap)
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, overlapRadius);
             foreach (Collider collider in colliders)
             {
-                if (collider.name != "Ground")
+                if (itemPool == (collider.transform.name.Length > 2 ? collider.transform.name.Substring(0,collider.transform.name.Length - 2) : collider.transform.name))
                 {
-                    return;
+                    canSpawn = false;
+                    break;
                 }
             }
-            objectPooler.SpawnFromPool(itemPool, transform.position, Quaternion.identity);
         }
+
+        if (ignoreIfOverlap || canSpawn)
+            objectPooler.SpawnFromPool(itemPool, transform.position, Quaternion.identity);
     }
 
 }

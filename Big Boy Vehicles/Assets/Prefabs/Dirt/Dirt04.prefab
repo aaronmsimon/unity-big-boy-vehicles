@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4943927776772169488}
   - component: {fileID: 2552662201291143500}
   m_Layer: 0
-  m_Name: Cube2
+  m_Name: Dirt04
   m_TagString: Dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 4580596407532989640}
   - component: {fileID: 4464472907687583385}
   m_Layer: 0
-  m_Name: Cube1
+  m_Name: Dirt04
   m_TagString: Dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
