@@ -44,19 +44,23 @@ public class StreetSweeperController : MonoBehaviour
 
     private void SpecialAction(InputAction.CallbackContext context)
     {
-        fansEnabled = !fansEnabled;
+        if (GameManager.Instance.PlayerManager.activeVehicle == gameObject)
+            fansEnabled = !fansEnabled;
     }
 
     private void SecondaryAction(InputAction.CallbackContext context)
     {
-        armsExtended = !armsExtended;
-
-        foreach (FanComplex fanComplex in fans)
+        if (GameManager.Instance.PlayerManager.activeVehicle == gameObject)
         {
-            StartCoroutine(AdjustFanArms(fanComplex));
-            foreach (Transform fan in fanComplex.fans)
+            armsExtended = !armsExtended;
+
+            foreach (FanComplex fanComplex in fans)
             {
-                StartCoroutine(AdjustFans(fan));
+                StartCoroutine(AdjustFanArms(fanComplex));
+                foreach (Transform fan in fanComplex.fans)
+                {
+                    StartCoroutine(AdjustFans(fan));
+                }
             }
         }
     }

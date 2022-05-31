@@ -11,7 +11,8 @@ public class DumpController : MonoBehaviour
 
     void Update()
     {
-        isDumping = (GameManager.Instance.InputController.SpecialInput == 1);
+        if (gameObject.transform.IsChildOf(GameManager.Instance.PlayerManager.activeVehicle.transform))
+            isDumping = (GameManager.Instance.InputController.SpecialInput == 1);
 
         rotateDump();
     }

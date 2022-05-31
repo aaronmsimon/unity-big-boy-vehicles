@@ -16,6 +16,8 @@ public class VehicleController : MonoBehaviour
     private Transform centerOfMass;
     private Rigidbody rb;
 
+    private const float MPS_TO_MPH = 2.237f;
+
     void Start()
     {
         wheels = GetComponentsInChildren<Wheel>();
@@ -29,15 +31,19 @@ public class VehicleController : MonoBehaviour
 
     void Update()
     {
-        Steer = GameManager.Instance.InputController.SteerInput;
-        Throttle = GameManager.Instance.InputController.ThrottleInput;
-        Brake = GameManager.Instance.InputController.BrakeInput;
-
-        foreach (var wheel in wheels)
+        if (GameManager.Instance.PlayerManager.activeVehicle == gameObject)
         {
-            wheel.SteerAngle = Steer * maxSteer;
-            wheel.Torque = Throttle * motorTorque;
-            wheel.Brake = Brake * brakeTorque;
+            Steer = GameManager.Instance.InputController.SteerInput;
+            Throttle = GameManager.Instance.InputController.ThrottleInput;
+            Brake = GameManager.Instance.InputController.BrakeInput;
+
+            foreach (var wheel in wheels)
+            {
+                wheel.SteerAngle = Steer * maxSteer;
+                wheel.Torque = Throttle * motorTorque;
+                wheel.Brake = Brake * brakeTorque;
+            }
+            //Debug.Log(rb.velocity.magnitude * MPS_TO_MPH);
         }
     }
 
