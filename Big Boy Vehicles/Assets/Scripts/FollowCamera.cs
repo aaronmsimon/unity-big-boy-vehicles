@@ -8,6 +8,7 @@ public class FollowCamera : MonoBehaviour
 
     [SerializeField] private Vector3 offsetPos;
     [SerializeField] private Vector2 offsetRot;
+	[SerializeField] private bool mirrorTargetY;
 
     void LateUpdate()
     {
@@ -15,6 +16,6 @@ public class FollowCamera : MonoBehaviour
             return;
 
         transform.position = target.position + target.rotation * offsetPos;
-        transform.eulerAngles = new Vector3(offsetRot.x, target.eulerAngles.y, offsetRot.y);
+        transform.rotation = Quaternion.Euler(offsetRot.x, mirrorTargetY ? target.eulerAngles.y: 0, offsetRot.y);
     }
 }
