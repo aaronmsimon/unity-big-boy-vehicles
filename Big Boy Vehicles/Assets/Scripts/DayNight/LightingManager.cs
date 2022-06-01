@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [ExecuteAlways]
 public class LightingManager : MonoBehaviour
@@ -9,6 +10,14 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private LightingPreset lightingPreset;
     [SerializeField, Range(0, 24)] private float timeOfDay;
     [SerializeField] private float secondsPerDay;
+    [SerializeField] private GameObject timeUI;
+
+    private Text timeText;
+
+    private void Start()
+    {
+        timeText = timeUI.GetComponent<Text>();
+    }
 
     private void Update()
     {
@@ -20,10 +29,31 @@ public class LightingManager : MonoBehaviour
             timeOfDay += Time.deltaTime * 24 / secondsPerDay;
             timeOfDay %= 24; // Clamp between 0-24
             UpdateLighting(timeOfDay / 24f);
+            string suffix;
+            float hours = Mathf.Floor(timeOfDay);
+            int minutes;
+            if (hours > 12)
+            {
+                hours -= 12;
+                suffix = "pm";
+            } else
+            {
+                suffix = "am";
+            }
+            if (hours > 0)
+            {
+                minutes = Mathf.RoundToInt(timeOfDay % hours * 60);
+            } else
+            {
+                minutes = Mathf.RoundToInt(timeOfDay * 60);
+                hours = 12;
+            }
+            timeText.text = hours.ToString() + ":" + minutes.ToString("00") + " " + suffix;
         } else
         {
             UpdateLighting(timeOfDay / 24f);
         }
+
     }
 
     private void UpdateLighting(float timePercent)
