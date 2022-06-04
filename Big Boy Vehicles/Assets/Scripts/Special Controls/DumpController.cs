@@ -20,7 +20,14 @@ public class DumpController : MonoBehaviour
     void rotateDump()
     {
         // Smoothly tilts a transform towards a target rotation.
-        float tiltAngle = maxRotation * (isDumping ? 1 : 0);
+        float tiltAngle;
+        if (isDumping)
+        {
+            tiltAngle = maxRotation;
+        } else
+        {
+            tiltAngle = transform.parent.eulerAngles.x;
+        }
 
         // Rotate the dump by converting the angles into a quaternion.
         Quaternion target = Quaternion.Euler(tiltAngle, transform.parent.eulerAngles.y, 0);
