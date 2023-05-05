@@ -16,12 +16,12 @@
                 },
                 {
                     "name": "Throttle",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "fec602c9-3e0a-40a0-b2b6-53a995337a15",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -92,26 +92,37 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "90b98214-760b-42ff-97a4-3dc3ecf3e181",
-                    "path": "<Keyboard>/space",
+                    "name": "WASD",
+                    "id": "47a1c699-47b0-4a9a-954a-3913bc5f1189",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Throttle",
-                    "isComposite": false,
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "2b4c7f79-3141-4c36-b5a7-1b2c74174685",
-                    "path": "<Gamepad>/buttonSouth",
+                    "name": "negative",
+                    "id": "b66ad5af-b52a-41fc-88f4-be067e3ae128",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Throttle",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "def0154f-c1e4-4d4d-b51e-99f120117712",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throttle",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
