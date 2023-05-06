@@ -44,6 +44,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Special"",
+                    ""type"": ""Button"",
+                    ""id"": ""127fca0b-79c0-42f4-a9a6-a15d505b4727"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -145,6 +154,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Throttle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0476e6be-26c0-43de-8537-334e3a36402f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Special"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -155,6 +175,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Driving = asset.FindActionMap("Driving", throwIfNotFound: true);
         m_Driving_Steering = m_Driving.FindAction("Steering", throwIfNotFound: true);
         m_Driving_Throttle = m_Driving.FindAction("Throttle", throwIfNotFound: true);
+        m_Driving_Special = m_Driving.FindAction("Special", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -218,12 +239,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IDrivingActions> m_DrivingActionsCallbackInterfaces = new List<IDrivingActions>();
     private readonly InputAction m_Driving_Steering;
     private readonly InputAction m_Driving_Throttle;
+    private readonly InputAction m_Driving_Special;
     public struct DrivingActions
     {
         private @PlayerControls m_Wrapper;
         public DrivingActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Steering => m_Wrapper.m_Driving_Steering;
         public InputAction @Throttle => m_Wrapper.m_Driving_Throttle;
+        public InputAction @Special => m_Wrapper.m_Driving_Special;
         public InputActionMap Get() { return m_Wrapper.m_Driving; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -239,6 +262,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Throttle.started += instance.OnThrottle;
             @Throttle.performed += instance.OnThrottle;
             @Throttle.canceled += instance.OnThrottle;
+            @Special.started += instance.OnSpecial;
+            @Special.performed += instance.OnSpecial;
+            @Special.canceled += instance.OnSpecial;
         }
 
         private void UnregisterCallbacks(IDrivingActions instance)
@@ -249,6 +275,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Throttle.started -= instance.OnThrottle;
             @Throttle.performed -= instance.OnThrottle;
             @Throttle.canceled -= instance.OnThrottle;
+            @Special.started -= instance.OnSpecial;
+            @Special.performed -= instance.OnSpecial;
+            @Special.canceled -= instance.OnSpecial;
         }
 
         public void RemoveCallbacks(IDrivingActions instance)
@@ -270,5 +299,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnSteering(InputAction.CallbackContext context);
         void OnThrottle(InputAction.CallbackContext context);
+        void OnSpecial(InputAction.CallbackContext context);
     }
 }
